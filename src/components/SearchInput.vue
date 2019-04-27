@@ -9,7 +9,6 @@
 </template>
 
 <script>
-/* eslint-disable */
 export default {
     name: 'SearchInput',
     props: {

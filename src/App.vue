@@ -9,9 +9,10 @@
     <Claim v-if="step === 0"/>
     <SearchInput v-model="searchValue" @input="handleInput" :dark="step === 1" />
     <div class="results" v-if="results && !loading && step === 1">
-      <Item v-for="item in results" :item="item" :key="item.data[0].nasa_id" />
+      <Item v-for="item in results" :item="item" :key="item.data[0].nasa_id" @click.native="handleModalOpen(item)" />
     </div>
-    <Modal />
+    <div class="loader" v-if="step === 1 && loading" />
+    <Modal v-if="modalOpen" :item="modalItem" @closeModal="modalOpen=false" />
   </div>
 </template>
 
@@ -37,6 +38,8 @@ export default {
   },
   data() {
     return {
+      modalOpen: false,
+      modalItem: null,
       loading: false,
       step: 0,
       searchValue: '',
@@ -44,6 +47,11 @@ export default {
     };
   },
   methods: {
+    handleModalOpen(item) {
+      this.modalOpen = true;
+      this.modalItem = item;
+    },
+
     // eslint-disable-next-line
     handleInput: debounce(function () {
       this.loading = true;
@@ -74,7 +82,7 @@ export default {
     font-family: "Montserrat", sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(white, #222);
+    background: linear-gradient(white, #333);
   }
 
   .fade-enter-active, .fade-leave-active {
@@ -106,6 +114,43 @@ export default {
 
       &.flexStart {
       justify-content: flex-start;
+    }
+  }
+
+  .loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, );
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+  }
+
+  .loader::after {
+    content: '';
+    display: block;
+    width: 46px;
+    height: 46px;
+    margin: 1px;
+    border-radius: 50%;
+    border: 5px solid #1e3d4a;
+    border-color: #1e3d4a transparent #1e3d4a transparent;
+    animation: loading 1.2s linear infinite;
+
+    @media (min-width: 768px) {
+      width: 90px;
+      height: 90px
+    }
+  }
+
+  @keyframes loading {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
     }
   }
 
