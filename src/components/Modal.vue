@@ -111,7 +111,9 @@ export default {
     }
 
     .photo {
+        margin-top: 20vh;
         width: 100%;
+        min-height: 30vh;
         height: auto;
         background: black;
         max-height: 100%;
@@ -128,6 +130,7 @@ export default {
 
     div.description {
         max-height: 100%;
+        max-width: 350px;
     }
 
     .title {
