@@ -35,7 +35,7 @@ export default {
     mounted() {
         this.photo = this.item.links[0].href;
         this.title = this.item.data[0].title;
-        this.description = this.item.data[0].description.substring(0, 1100);
+        this.description = this.item.data[0].description;
     }
 }
 </script>
@@ -65,15 +65,15 @@ export default {
         position: absolute;
         width: 30px;
         height: 30px;
-        right: 0;
-        top: 0;
+        right: 30px;
+        top: 30px;
         cursor: pointer;
 
         &::before,
         &::after {
             position: absolute;
-            top: 30px;
-            right: 20px;
+            top: 0;
+            right: 0;
             content: '';
             width: 10px;
             height: 2px;
@@ -91,6 +91,7 @@ export default {
     }
 
     .innerWrapper {
+        overflow: auto;
         display: flex;
         height: 100%;
         padding: 50px;
@@ -123,6 +124,10 @@ export default {
 
     .description {
         color: #333;
+    }
+
+    div.description {
+        max-height: 100%;
     }
 
     .title {
