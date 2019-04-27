@@ -11,8 +11,8 @@
 </template>
 <script>
 export default {
-    name: 'Claim'
-}
+  name: 'Claim',
+};
 </script>
 <style lang="scss" scoped>
     .claimWrapper {
@@ -34,7 +34,7 @@ export default {
 
         @media(min-width: 1024px) {
             font-size: 100px;
-        }     
+        }
     }
 
     .subclaim {
