@@ -32,3 +32,6 @@ npm run test:unit
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+a few modifications of this project: https://github.com/helloroman/spacer-helloroman
+His youtube channel(with tutorial how to do this): https://www.youtube.com/channel/UCq8XmOMtrUCb8FcFHQEd8_g
