@@ -1,4 +1,5 @@
 # spacer-helloroman
+Made to learn vue js, using this [tutorial](https://www.youtube.com/playlist?list=PLKnxnWdLGM49Lf7V-nl5zKf-JNMlZpACA)
 
 ## Project setup
 ```
